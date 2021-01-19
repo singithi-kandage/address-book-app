@@ -1,9 +1,9 @@
-const Header = ({ brandUrl, headerText }) => {
+const Header = ({ brandImage, headerText }) => {
   return (
     <header className="header">
       <img
         className="header__brand"
-        src={brandUrl}
+        src={brandImage}
         alt={`${headerText}-brand`}
       />
       <h1 className="header__title">
