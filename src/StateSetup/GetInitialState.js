@@ -1,5 +1,8 @@
 const InitialState = {
-  personData: [],
+  personData: {
+    hasError: false,
+    personList: []
+  },
   person: {
     firstName: "",
     lastName: "",
