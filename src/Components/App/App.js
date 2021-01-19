@@ -1,28 +1,30 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./App.scss";
-import * as brand from "../../Assets/address-book-icon.png";
 
 import Header from "../../Shared/Header/Header";
 import PersonTable from "../PersonTable/PersonTable";
 import PersonDetails from "../PersonDetails/PersonDetails";
 
+const brand = require("../../Assets/address-book-icon.png");
+
 function App() {
+  const person = useSelector(state => state.person);
+
   return (
     <div className="app">
       <Header brandImage={brand} headerText={"Address Book App"} />
 
       <main>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <PersonTable />
-            </Route>
-            <Route path="/details">
-              <PersonDetails />
-            </Route>
-          </Switch>
-        </Router>
+        <Switch>
+          <Route exact path="/" component={PersonTable} />
+          <Route
+            path="/details"
+            render={() =>
+              person.firstName !== "" ? <PersonDetails /> : <Redirect to="/" />}
+          />
+        </Switch>
       </main>
     </div>
   );
