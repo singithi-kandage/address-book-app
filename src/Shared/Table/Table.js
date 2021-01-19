@@ -1,13 +1,13 @@
 import TableRow from "./TableRow";
 
-const Table = ({ tableHeader, tableBody, onSelectRow }) => {
+const Table = ({ tableHeader, tableBody, displayedColumns, onSelectRow }) => {
   return (
-    <table class="table">
+    <table className="table">
       <thead>
         <tr>
           {tableHeader.map((column, index) => {
             return (
-              <th>
+              <th key={index}>
                 {column.columnName}
               </th>
             );
@@ -18,7 +18,12 @@ const Table = ({ tableHeader, tableBody, onSelectRow }) => {
         {tableBody.length > 0 &&
           tableBody.map((row, index) => {
             return (
-              <TableRow index={index} row={row} onSelectRow={onSelectRow} />
+              <TableRow
+                index={index}
+                row={row}
+                displayedColumns={displayedColumns}
+                onSelectRow={onSelectRow}
+              />
             );
           })}
       </tbody>
