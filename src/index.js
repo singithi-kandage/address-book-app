@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
+import { Router } from "react-router-dom";
+import createBrowserHistory from "history/createBrowserHistory";
 
 import "./index.scss";
 import App from "./Components/App/App";
@@ -17,10 +19,14 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
+export const history = createBrowserHistory();
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router history={history}>
+        <App />
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
