@@ -1,0 +1,50 @@
+import produce from "immer";
+import { registerReducer } from "../../../StateSetup/RootReducer";
+
+const BASE_RANDOM_USERS_URL = process.env.REACT_APP_BASE_RANDOM_USERS_URL;
+const OK = 200;
+
+export const REQUEST_ACTION_NAME = "ACTION_FETCH_PEOPLE_REQUEST";
+export const RESPONSE_ACTION_NAME = "ACTION_FETCH_PEOPLE_RESPONSE";
+export const ERROR_ACTION_NAME = "ACTION_FETCH_PEOPLE_ERROR";
+
+export const FetchPersons = () => {
+  return async dispatch => {
+    const response = await fetch(
+      `${BASE_RANDOM_USERS_URL}/?page=1&results=10&seed=abc`
+    );
+    const responseBody = await response.json();
+    console.log(responseBody);
+    if (response.status === OK) {
+      const personList = responseBody.results.map(result => {
+        return {
+          firstName: result.name.first,
+          lastName: result.name.last,
+          phoneNumber: result.phone,
+          imageUrl: result.picture.medium,
+        };
+      });
+
+      dispatch({
+        type: RESPONSE_ACTION_NAME,
+        personList,
+      });
+    } else {
+      dispatch({
+        type: ERROR_ACTION_NAME,
+      });
+    }
+  };
+};
+
+export const responseReducer = produce((state, action) => {
+  state.personData.personList = action.personList;
+  state.personData.hasError = false;
+});
+
+export const errorReducer = produce((state, action) => {
+  state.personData.hasError = true;
+});
+
+registerReducer(RESPONSE_ACTION_NAME, responseReducer);
+registerReducer(ERROR_ACTION_NAME, errorReducer);
