@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  padding: 1em 0;
+
+  .form__formSection {
+    width: 50%;
+  }
+
+  .form_formImage {
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .form__formGroup {
+    display: flex;
+    flex-direction: row;
+    padding: 1em 0;
+
+    .form__formLabel {
+      width: 25%;
+      font-size: 1vw;
+      padding-right: 2em;
+    }
+
+    .form__formInput {
+      border: none;
+      font-weight: bold;
+      font-size: 1vw;
+    }
+  }
+}
