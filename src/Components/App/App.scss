@@ -1,12 +1,12 @@
 .app {
   display: grid;
-  grid-template-columns: 10% 10% 60% 10% 10%;
-  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 5% 85% 10%;
 }
 
 .main {
-  grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-start: 2;
+  grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 2;
   display: flex;

@@ -8,7 +8,11 @@ import { FetchPersons } from "./ReducerActions/FetchPersons";
 import { SelectPerson } from "./ReducerActions/SelectPerson";
 import { ChangePage } from "./ReducerActions/ChangePage";
 
-const tableHeader = [{ columnName: "First Name" }, { columnName: "Last Name" }];
+const tableHeader = [
+  { columnName: "User" },
+  { columnName: "First Name" },
+  { columnName: "Last Name" },
+];
 
 const PersonTable = () => {
   const { page } = useSelector(state => ({
@@ -44,7 +48,7 @@ const PersonTable = () => {
         tableHeader={tableHeader}
         tableBody={personList}
         hasError={hasError}
-        displayedColumns={["firstName", "lastName"]}
+        displayedColumns={["imageUrl", "firstName", "lastName"]}
         onSelectRow={handleSelectPerson}
       />
       <CustomPagination onPageChange={handlePageChange} />

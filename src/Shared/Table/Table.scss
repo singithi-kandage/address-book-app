@@ -3,6 +3,15 @@
 .table {
   border-collapse: collapse;
   background-color: $colour-neutral-secondary;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 5em;
+
+  .table__image {
+    width: 2em;
+    height: auto;
+    border-radius: 50%;
+  }
 
   th {
     padding: 0.5em;
@@ -15,7 +24,7 @@
   }
 
   tr {
-    border-bottom: 1px solid black;
+    // border-bottom: 1px solid black;
     cursor: pointer;
   }
 
