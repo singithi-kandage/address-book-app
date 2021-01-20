@@ -1,3 +1,5 @@
+@import '../../Styles/colours.scss';
+
 .btnContainer {
   width: 100%;
   padding: 1em;
@@ -9,23 +11,24 @@
     padding: 1em;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
   }
 
   .btn--primary {
-    background-color: green;
+    background-color: $colour-highlight-primary;
     color: white;
   }
 
   .btn--primary:hover {
-    background-color: silver;
+    background-color: $colour-neutral-secondary;
   }
 
   .btn--secondary {
-    background-color: orange;
+    background-color: $colour-highlight-secondary;
     color: white;
   }
 
   .btn--primary:hover {
-    background-color: pink;
+    background-color: $colour-neutral-secondary;
   }
 }

@@ -1,6 +1,8 @@
+@import "../../Styles/colours.scss";
+
 .table {
   border-collapse: collapse;
-  background-color: rgb(218, 218, 218);
+  background-color: $colour-neutral-secondary;
 
   th {
     padding: 0.5em;
@@ -14,6 +16,7 @@
 
   tr {
     border-bottom: 1px solid black;
+    cursor: pointer;
   }
 
   tr:hover {
