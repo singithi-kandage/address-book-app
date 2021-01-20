@@ -1,7 +1,6 @@
 import "./Header.scss";
 
 const Header = ({ brandImage, headerText }) => {
-  console.log(brandImage);
   return (
     <header className="header">
       {/* <img className="header__brand" src={brandImage} alt={`${headerText}`} /> */}
