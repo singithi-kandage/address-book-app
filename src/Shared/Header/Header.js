@@ -1,14 +1,15 @@
+import "./Header.scss";
+
 const Header = ({ brandImage, headerText }) => {
+  console.log(brandImage);
   return (
     <header className="header">
-      <img
-        className="header__brand"
-        src={brandImage}
-        alt={`${headerText}-brand`}
-      />
-      <h1 className="header__title">
-        {headerText}
-      </h1>
+      {/* <img className="header__brand" src={brandImage} alt={`${headerText}`} /> */}
+      <div className="header__title">
+        <h1>
+          {headerText}
+        </h1>
+      </div>
     </header>
   );
 };
