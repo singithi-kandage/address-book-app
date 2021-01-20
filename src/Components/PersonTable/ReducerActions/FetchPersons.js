@@ -8,13 +8,13 @@ export const REQUEST_ACTION_NAME = "ACTION_FETCH_PEOPLE_REQUEST";
 export const RESPONSE_ACTION_NAME = "ACTION_FETCH_PEOPLE_RESPONSE";
 export const ERROR_ACTION_NAME = "ACTION_FETCH_PEOPLE_ERROR";
 
-export const FetchPersons = () => {
+export const FetchPersons = page => {
   return async dispatch => {
     const response = await fetch(
-      `${BASE_RANDOM_USERS_URL}/?page=1&results=10&seed=abc`
+      `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc`
     );
     const responseBody = await response.json();
-    console.log(responseBody);
+
     if (response.status === OK) {
       const personList = responseBody.results.map(result => {
         return {

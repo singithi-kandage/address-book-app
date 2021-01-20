@@ -3,12 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Table from "../../Shared/Table/Table";
 
+import CustomPagination from "../../Shared/Pagination/Pagination";
 import { FetchPersons } from "./ReducerActions/FetchPersons";
 import { SelectPerson } from "./ReducerActions/SelectPerson";
+import { ChangePage } from "./ReducerActions/ChangePage";
 
 const tableHeader = [{ columnName: "First Name" }, { columnName: "Last Name" }];
 
 const PersonTable = () => {
+  const { page } = useSelector(state => ({
+    page: state.pagination.page,
+  }));
   const { personList } = useSelector(state => ({
     personList: state.personData.personList,
   }));
@@ -20,13 +25,17 @@ const PersonTable = () => {
 
   useEffect(
     () => {
-      dispatch(FetchPersons());
+      dispatch(FetchPersons(page));
     },
-    [dispatch]
+    [page, dispatch]
   );
 
   const handleSelectPerson = person => {
     dispatch(SelectPerson(person));
+  };
+
+  const handlePageChange = page => {
+    dispatch(ChangePage(page));
   };
 
   return (
@@ -38,6 +47,7 @@ const PersonTable = () => {
         displayedColumns={["firstName", "lastName"]}
         onSelectRow={handleSelectPerson}
       />
+      <CustomPagination onPageChange={handlePageChange} />
     </Fragment>
   );
 };
