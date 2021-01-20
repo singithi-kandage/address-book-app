@@ -1,7 +1,19 @@
-const Button = ({ buttonText, onClick }) => {
+import "./Button.scss";
+
+export const ButtonContainer = ({ position, children }) => {
+  return (
+    <div className="btnContainer" style={{ justifyContent: position }}>
+      {children}
+    </div>
+  );
+};
+
+export const Button = ({ buttonText, buttonClass, onClick }) => {
   return (
     <button
-      className="btn"
+      className={
+        buttonClass === "primary" ? "btn btn--primary" : "btn btn-secondary"
+      }
       onClick={() => {
         onClick();
       }}
@@ -10,5 +22,3 @@ const Button = ({ buttonText, onClick }) => {
     </button>
   );
 };
-
-export default Button;

@@ -1,0 +1,31 @@
+.btnContainer {
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+
+  .btn {
+    width: 10vw;
+    padding: 1em;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .btn--primary {
+    background-color: green;
+    color: white;
+  }
+
+  .btn--primary:hover {
+    background-color: silver;
+  }
+
+  .btn--secondary {
+    background-color: orange;
+    color: white;
+  }
+
+  .btn--primary:hover {
+    background-color: pink;
+  }
+}
