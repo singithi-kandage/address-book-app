@@ -11,11 +11,17 @@ export const ERROR_ACTION_NAME = "ACTION_FETCH_PEOPLE_ERROR";
 export const FetchPersons = page => {
   return async dispatch => {
     const response = await fetch(
-      `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc`
-    );
-    const responseBody = await response.json();
+      `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc&?exc=login`
+    ).catch(e => {
+      console.log(e);
+      dispatch({
+        type: ERROR_ACTION_NAME,
+      });
+    });
 
     if (response.status === OK) {
+      const responseBody = await response.json();
+
       const personList = responseBody.results.map(result => {
         return {
           firstName: result.name.first,
