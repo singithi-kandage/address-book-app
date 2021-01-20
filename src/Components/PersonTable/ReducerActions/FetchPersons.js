@@ -21,7 +21,7 @@ export const FetchPersons = () => {
           firstName: result.name.first,
           lastName: result.name.last,
           phoneNumber: result.phone,
-          imageUrl: result.picture.medium,
+          imageUrl: result.picture.large,
         };
       });
 
