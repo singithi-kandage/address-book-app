@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Table from "../../Shared/Table/Table";
@@ -11,6 +11,9 @@ const tableHeader = [{ columnName: "First Name" }, { columnName: "Last Name" }];
 const PersonTable = () => {
   const { personList } = useSelector(state => ({
     personList: state.personData.personList,
+  }));
+  const { hasError } = useSelector(state => ({
+    personList: state.personData.hasError,
   }));
 
   const dispatch = useDispatch();
@@ -28,10 +31,10 @@ const PersonTable = () => {
 
   return (
     <Fragment>
-      <h2>Person Table</h2>
       <Table
         tableHeader={tableHeader}
         tableBody={personList}
+        hasError={hasError}
         displayedColumns={["firstName", "lastName"]}
         onSelectRow={handleSelectPerson}
       />
