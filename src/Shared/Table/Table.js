@@ -33,6 +33,7 @@ const Table = ({
                 tableBody.map((row, index) => {
                   return (
                     <TableRow
+                      key={index}
                       index={index}
                       row={row}
                       displayedColumns={displayedColumns}
