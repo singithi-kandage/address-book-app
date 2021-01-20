@@ -54,7 +54,7 @@
       "src/**/*.js",
       "!src/**/*.test.js",
       "!src/*.js",
-      "!src/StateSetup/GetInitialState.js"
+      "!src/StateSetup/*.js"
     ]
   }
 }

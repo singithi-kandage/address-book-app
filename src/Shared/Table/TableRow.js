@@ -14,13 +14,17 @@ const TableRow = ({ index, row, displayedColumns, onSelectRow }) => {
       }}
     >
       {row &&
-        <Fragment key={index}>
+        <Fragment>
           {displayedValues.map((displayedValue, valIndex) => {
             return (
-              <Fragment>
+              <Fragment key={`column-${index}-${valIndex}`}>
                 {displayedValue.includes(".jpg")
-                  ? <td>
-                      <img className="table__image" src={displayedValue} alt="User" />
+                  ? <td key={`column-${index}-${valIndex}`}>
+                      <img
+                        className="table__image"
+                        src={displayedValue}
+                        alt="User"
+                      />
                     </td>
                   : <td key={`column-${index}-${valIndex}`}>
                       {displayedValue}

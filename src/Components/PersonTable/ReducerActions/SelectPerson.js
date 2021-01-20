@@ -5,7 +5,7 @@ import { history } from "../../../index";
 export const SELECT_ACTION_NAME = "ACTION_SELECT_PERSON";
 
 export const SelectPerson = person => {
-  return async dispatch => {
+  return dispatch => {
     dispatch({
       type: SELECT_ACTION_NAME,
       person,

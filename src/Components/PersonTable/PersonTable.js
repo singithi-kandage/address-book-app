@@ -14,7 +14,7 @@ const tableHeader = [
   { columnName: "Last Name" },
 ];
 
-const PersonTable = () => {
+export const PersonTable = () => {
   const { page } = useSelector(state => ({
     page: state.pagination.page,
   }));

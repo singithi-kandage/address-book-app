@@ -7,14 +7,12 @@ import Header from "../../Shared/Header/Header";
 import PersonTable from "../PersonTable/PersonTable";
 import PersonDetails from "../PersonDetails/PersonDetails";
 
-const brand = require("../../Assets/address-book-icon.png");
-
 function App() {
   const person = useSelector(state => state.person);
 
   return (
     <div className="app">
-      <Header brandImage={brand} headerText={"Address Book App"} />
+      <Header headerText={"Address Book App"} />
 
       <main className="main">
         <Switch>

@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import "./Table.scss";
 import TableRow from "./TableRow";
 
-const Table = ({
+export const Table = ({
   tableHeader,
   tableBody,
   hasError,

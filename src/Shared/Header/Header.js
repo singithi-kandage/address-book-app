@@ -1,9 +1,8 @@
 import "./Header.scss";
 
-const Header = ({ brandImage, headerText }) => {
+export const Header = ({ headerText }) => {
   return (
     <header className="header">
-      {/* <img className="header__brand" src={brandImage} alt={`${headerText}`} /> */}
       <div className="header__title">
         <h1>
           {headerText}

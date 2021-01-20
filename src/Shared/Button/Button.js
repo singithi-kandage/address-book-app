@@ -12,7 +12,7 @@ export const Button = ({ buttonText, buttonClass, onClick }) => {
   return (
     <button
       className={
-        buttonClass === "primary" ? "btn btn--primary" : "btn btn-secondary"
+        buttonClass === "primary" ? "btn btn--primary" : "btn btn--secondary"
       }
       onClick={() => {
         onClick();

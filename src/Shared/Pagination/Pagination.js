@@ -3,7 +3,7 @@ import Pagination from "@material-ui/lab/Pagination";
 
 import "./Pagination.scss";
 
-const CustomPagination = ({ onPageChange }) => {
+export const CustomPagination = ({ onPageChange }) => {
   const [page, setPage] = React.useState(1);
 
   return (

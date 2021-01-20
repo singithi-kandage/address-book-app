@@ -4,7 +4,6 @@ import { registerReducer } from "../../../StateSetup/RootReducer";
 const BASE_RANDOM_USERS_URL = process.env.REACT_APP_BASE_RANDOM_USERS_URL;
 const OK = 200;
 
-export const REQUEST_ACTION_NAME = "ACTION_FETCH_PEOPLE_REQUEST";
 export const RESPONSE_ACTION_NAME = "ACTION_FETCH_PEOPLE_RESPONSE";
 export const ERROR_ACTION_NAME = "ACTION_FETCH_PEOPLE_ERROR";
 
@@ -12,12 +11,7 @@ export const FetchPersons = page => {
   return async dispatch => {
     const response = await fetch(
       `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc&?exc=login`
-    ).catch(e => {
-      console.log(e);
-      dispatch({
-        type: ERROR_ACTION_NAME,
-      });
-    });
+    );
 
     if (response.status === OK) {
       const responseBody = await response.json();

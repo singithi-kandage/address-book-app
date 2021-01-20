@@ -4,7 +4,7 @@ import { registerReducer } from "../../../StateSetup/RootReducer";
 export const CHANGE_PAGE_ACTION_NAME = "ACTION_CHANGE_PAGE";
 
 export const ChangePage = page => {
-  return async dispatch => {
+  return dispatch => {
     dispatch({
       type: CHANGE_PAGE_ACTION_NAME,
       page,

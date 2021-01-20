@@ -20,10 +20,11 @@ export const FormSection = props => {
 export const FormGroup = ({ labelText, inputType, inputValue }) => {
   return (
     <div className="form__formGroup">
-      <label className="form__formLabel">
+      <label className="form__formLabel" name={labelText}>
         {labelText}
       </label>
       <input
+        id={labelText}
         className="form__formInput"
         type={inputType}
         value={inputValue}
