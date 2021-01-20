@@ -1,6 +1,15 @@
+import { Fragment } from "react";
+
+import "./Table.scss";
 import TableRow from "./TableRow";
 
-const Table = ({ tableHeader, tableBody, displayedColumns, onSelectRow }) => {
+const Table = ({
+  tableHeader,
+  tableBody,
+  hasError,
+  displayedColumns,
+  onSelectRow,
+}) => {
   return (
     <table className="table">
       <thead>
@@ -15,17 +24,23 @@ const Table = ({ tableHeader, tableBody, displayedColumns, onSelectRow }) => {
         </tr>
       </thead>
       <tbody>
-        {tableBody.length > 0 &&
-          tableBody.map((row, index) => {
-            return (
-              <TableRow
-                index={index}
-                row={row}
-                displayedColumns={displayedColumns}
-                onSelectRow={onSelectRow}
-              />
-            );
-          })}
+        {hasError
+          ? <tr col="2">
+              Sorry, looks like there was a problem getting your records.
+            </tr>
+          : <Fragment>
+              {tableBody.length > 0 &&
+                tableBody.map((row, index) => {
+                  return (
+                    <TableRow
+                      index={index}
+                      row={row}
+                      displayedColumns={displayedColumns}
+                      onSelectRow={onSelectRow}
+                    />
+                  );
+                })}
+            </Fragment>}
       </tbody>
     </table>
   );
