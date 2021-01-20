@@ -16,7 +16,7 @@ function App() {
     <div className="app">
       <Header brandImage={brand} headerText={"Address Book App"} />
 
-      <main>
+      <main className="main">
         <Switch>
           <Route exact path="/" component={PersonTable} />
           <Route
