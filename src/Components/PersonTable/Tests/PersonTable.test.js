@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { useSelector, useDispatch } from "react-redux";
 
 import PersonTable from "../PersonTable";
-import { history } from "../../../index";
+import { history } from "../../App/App";
 import { FetchPersons } from "../ReducerActions/FetchPersons.js";
 import { SelectPerson } from "../ReducerActions/SelectPerson.js";
 import { ChangePage } from "../ReducerActions/ChangePage.js";
@@ -46,7 +46,7 @@ jest.mock("../ReducerActions/FetchPersons.js");
 jest.mock("../ReducerActions/SelectPerson.js");
 jest.mock("../ReducerActions/ChangePage.js");
 
-jest.mock("../../../index", () => ({
+jest.mock("../../App/App.js", () => ({
   history: {
     push: jest.fn(),
   },

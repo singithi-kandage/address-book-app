@@ -1,11 +1,11 @@
-import { history } from "../../../index";
+import { history } from "../../App/App";
 import {
   SelectPerson,
   selectPersonReducer,
   SELECT_ACTION_NAME,
 } from "../ReducerActions/SelectPerson";
 
-jest.mock("../../../index", () => ({
+jest.mock("../../App/App.js", () => ({
   history: {
     push: jest.fn(),
   },

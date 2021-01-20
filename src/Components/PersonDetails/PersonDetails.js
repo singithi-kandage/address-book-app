@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
 
-import { history } from "../../index";
+import { history } from "../App/App";
 import { Form, FormGroup, FormSection } from "../../Shared/Form/Form";
 import { ButtonContainer, Button } from "../../Shared/Button/Button";
 

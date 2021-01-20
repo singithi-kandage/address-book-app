@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { useSelector, useDispatch } from "react-redux";
 
 import App from "../App";
-import { history } from "../../../index";
+import { history } from "../App";
 
 jest.mock("react-redux", () => ({
   useSelector: jest.fn().mockImplementation(selector =>
@@ -18,7 +18,7 @@ jest.mock("react-redux", () => ({
   useDispatch: jest.fn().mockImplementation(() => actionDispatcher => {}),
 }));
 
-jest.mock("../../../index", () => ({
+jest.mock("../App", () => ({
   history: {
     push: jest.fn(),
   },

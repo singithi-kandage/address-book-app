@@ -1,6 +1,6 @@
 import produce from "immer";
 import { registerReducer } from "../../../StateSetup/RootReducer";
-import { history } from "../../../index";
+import { history } from "../../App/App";
 
 export const SELECT_ACTION_NAME = "ACTION_SELECT_PERSON";
 
