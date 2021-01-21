@@ -5,7 +5,7 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 
 import "./index.scss";
-import App from "./Components/App/App";
+import { App } from "./Components/App/App";
 import reportWebVitals from "./reportWebVitals";
 
 import RootReducer from "./StateSetup/RootReducer";

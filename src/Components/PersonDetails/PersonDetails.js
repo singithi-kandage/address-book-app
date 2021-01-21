@@ -5,7 +5,7 @@ import { history } from "../App/App";
 import { Form, FormGroup, FormSection } from "../../Shared/Form/Form";
 import { ButtonContainer, Button } from "../../Shared/Button/Button";
 
-const PersonDetails = () => {
+export const PersonDetails = () => {
   const person = useSelector(state => state.person);
 
   return (

@@ -10,7 +10,7 @@ import PersonDetails from "../PersonDetails/PersonDetails";
 
 export const history = createBrowserHistory();
 
-function App() {
+export const App = () => {
   const person = useSelector(state => state.person);
 
   return (
@@ -33,6 +33,4 @@ function App() {
       </main>
     </div>
   );
-}
-
-export default App;
+};
