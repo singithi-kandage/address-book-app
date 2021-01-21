@@ -10,7 +10,14 @@ export const ERROR_ACTION_NAME = "ACTION_FETCH_PEOPLE_ERROR";
 export const FetchPersons = page => {
   return async dispatch => {
     const response = await fetch(
-      `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc&?exc=login`
+      `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc&?exc=login`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "text/plain",
+          "Access-Control-Allow-Origin": "https://randomuser.me",
+        },
+      }
     );
 
     if (response.status === OK) {

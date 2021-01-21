@@ -15,7 +15,7 @@ export const PersonDetails = () => {
           <h2>{`${person.firstName} ${person.lastName}`}</h2>
 
           <Form>
-            <FormSection customWidth={"30%"}>
+            <FormSection>
               <img
                 className="form_formImage"
                 src={person.imageUrl}
@@ -23,7 +23,7 @@ export const PersonDetails = () => {
               />
             </FormSection>
 
-            <FormSection customWidth={"70%"}>
+            <FormSection>
               <FormGroup
                 labelText="First Name"
                 inputType="text"

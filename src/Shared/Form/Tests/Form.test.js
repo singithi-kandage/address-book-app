@@ -26,7 +26,6 @@ describe("Form", () => {
 
 describe("FormSection", () => {
   test("Should render FormSection", () => {
-    const customWidth = "20%";
     const children = (
       <FormGroup
         labelText={labelText}

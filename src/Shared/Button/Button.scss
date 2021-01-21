@@ -1,13 +1,12 @@
 @import '../../Styles/colours.scss';
 
 .btnContainer {
-  width: 100%;
+  width: 90%;
   padding: 1em;
   display: flex;
   flex-direction: row;
 
   .btn {
-    width: 10vw;
     padding: 1em;
     border: none;
     border-radius: 10px;

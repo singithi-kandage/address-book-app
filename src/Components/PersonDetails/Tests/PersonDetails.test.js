@@ -58,9 +58,6 @@ describe("PersonDetails", () => {
 
     const form = document.querySelector(".form");
     expect(form).toBeDefined();
-    // expect(
-    //   screen.getByText(`${personList[0].firstName} ${personList[0].lastName} `)
-    // ).toBeDefined();
     const inputs = screen.getAllByRole("textbox");
     expect(inputs).toHaveLength(3);
     expect(screen.getByRole("button")).toBeDefined();
