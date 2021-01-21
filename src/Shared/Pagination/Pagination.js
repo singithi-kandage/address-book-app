@@ -3,9 +3,7 @@ import Pagination from "@material-ui/lab/Pagination";
 
 import "./Pagination.scss";
 
-export const CustomPagination = ({ onPageChange }) => {
-  const [page, setPage] = React.useState(1);
-
+export const CustomPagination = ({ page, onPageChange }) => {
   return (
     <div className="paginationContainer">
       <Pagination
@@ -13,7 +11,6 @@ export const CustomPagination = ({ onPageChange }) => {
         page={page}
         onChange={(event, value) => {
           onPageChange(value);
-          setPage(value);
         }}
       />
     </div>

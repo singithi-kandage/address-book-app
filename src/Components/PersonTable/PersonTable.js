@@ -51,7 +51,7 @@ export const PersonTable = () => {
         displayedColumns={["imageUrl", "firstName", "lastName"]}
         onSelectRow={handleSelectPerson}
       />
-      <CustomPagination onPageChange={handlePageChange} />
+      <CustomPagination page={page} onPageChange={handlePageChange} />
     </Fragment>
   );
 };
