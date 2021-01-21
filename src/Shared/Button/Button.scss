@@ -16,6 +16,7 @@
   .btn--primary {
     background-color: $colour-highlight-primary;
     color: white;
+    transition: all 0.1s ease-out;
   }
 
   .btn--primary:hover {
@@ -26,10 +27,11 @@
   .btn--secondary {
     background-color: $colour-neutral-secondary;
     color: white;
+    transition: all 0.1s ease-out;
   }
 
   .btn--secondary :hover {
     background-color: $colour-medium-primary;
-    color: darken($colour-neutral-primary, 20%);
+    color: $colour-neutral-primary;
   }
 }
