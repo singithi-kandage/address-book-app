@@ -1,6 +1,46 @@
-# Getting Started with Address Book App
+# Address Book App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The address book app is a simple SPA which allows a user to view a table of randomly generated users from 
+https://randomuser.me/api. When a user selects a user, they are redirected to a page where they can view the 
+user's first name, last name, and phone number on the details page.
+
+## Summary
+
+Your overall approach
+■ What features you implemented
+■ Given more time, what else would you have liked to complete and how
+long it would have taken you?
+■ Given more time, what else would you have done to make the project
+more robust?
+
+Overall, I wanted to create a very simple interface which follows the traditional UX patterns around viewing a details
+page which flows off from a datatable. While the Random user API can generate up to a maximum of 500 users per request,
+I kept the number of users to a simple 10 per page, and implemented pagination (making use of Material UI's pagination 
+component) to allow a user to access up to 10 pages of users. The details page includes a photograph of the the user, 
+along with their name and phone number. 
+
+The following technologies/techniques were used:
+* React (this project was bootstrapped with create-react-app)
+* Redux - react-redux, redux-thunk
+* Semantic HTML
+* SASS
+* immer.js
+* BEM
+* Material UI components
+
+The project was tested to 99% jest code coverage with:
+* Jest
+* @testing-library/react"
+
+If I had more time, I would have liked to:
+* Add more features, including the ability to select the number of results per page, and the ability to filter results by name.
+* Implement fluid typography
+* Allow users to select dark or light mode, by designing around theme-able components
+
+In order to make the application more robust, I would like to:
+* Do an accesibility audit of the code, ensuring screen readers can properly access the page
+* Convert the ES6 code into Typescript
+* Implement end-to-end tests with Cypress 
 
 ## Available Scripts
 
@@ -29,12 +69,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm eject`
+### Deployment (powered by Netlify)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Create a Netlify account
+2. Get started by authorizing Netflify to access a GitHub/GitLab/BitBucket account, and select the repo for address-book-app
+3. Select which branch you want to deploy from
+4. Click deploy.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+And voila! Netlify handles the deloyment of the application via their CDN.
