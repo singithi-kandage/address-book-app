@@ -14,7 +14,7 @@
 
   th {
     padding: 0.5em;
-    background-color: rgba(88, 88, 88, 0.5);
+    background-color: $colour-medium-primary;
     text-align: left;
   }
 
@@ -22,12 +22,15 @@
     padding: 0.5em;
   }
 
-  tr {
-    // border-bottom: 1px solid black;
-    cursor: pointer;
-  }
+  tbody {
+    tr {
+      cursor: pointer;
+    }
 
-  tr:hover {
-    background-color: rgba(88, 88, 88, 0.3);
+    tr:hover {
+      color: black;
+      background-color: lighten($colour-medium-primary, 10%);
+      opacity: 0.6;
+    }
   }
 }

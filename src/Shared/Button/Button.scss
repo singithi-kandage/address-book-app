@@ -19,15 +19,17 @@
   }
 
   .btn--primary:hover {
-    background-color: $colour-neutral-secondary;
+    background-color: $colour-highlight-secondary;
+    color: darken($colour-neutral-primary, 20%);
   }
 
   .btn--secondary {
-    background-color: $colour-highlight-secondary;
+    background-color: $colour-neutral-secondary;
     color: white;
   }
 
-  .btn--primary:hover {
-    background-color: $colour-neutral-secondary;
+  .btn--secondary :hover {
+    background-color: $colour-medium-primary;
+    color: darken($colour-neutral-primary, 20%);
   }
 }
