@@ -1,3 +1,5 @@
+@import "../../Styles/colours.scss";
+
 .form {
   display: flex;
   flex-direction: row;
@@ -20,9 +22,11 @@
     .form__formLabel {
       width: 25%;
       padding-right: 2em;
+      color: $colour-highlight-primary;
     }
 
     .form__formInput {
+      color: white;
       border: none;
       font-weight: bold;
       background-color: transparent;

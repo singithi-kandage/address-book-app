@@ -5,6 +5,7 @@
   background-color: $colour-neutral-secondary;
   border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   .table__image {
     width: 2em;
@@ -14,7 +15,7 @@
 
   th {
     padding: 0.5em;
-    background-color: rgba(88, 88, 88, 0.5);
+    background-color: $colour-medium-primary;
     text-align: left;
   }
 
@@ -22,12 +23,15 @@
     padding: 0.5em;
   }
 
-  tr {
-    // border-bottom: 1px solid black;
-    cursor: pointer;
-  }
+  tbody {
+    tr {
+      cursor: pointer;
+      transition: all 0.1s ease-out;
+    }
 
-  tr:hover {
-    background-color: rgba(88, 88, 88, 0.3);
+    tr:hover {
+      background-color: lighten($colour-medium-primary, 10%);
+      opacity: 0.6;
+    }
   }
 }
