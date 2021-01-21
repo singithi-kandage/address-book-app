@@ -9,9 +9,8 @@ export const Form = props => {
 };
 
 export const FormSection = props => {
-  const { customWidth } = props;
   return (
-    <div className="form__formSection" style={{ width: customWidth }}>
+    <div className="form__formSection">
       {props.children}
     </div>
   );
