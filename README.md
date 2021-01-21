@@ -6,13 +6,6 @@ user's first name, last name, and phone number on the details page.
 
 ## Summary
 
-Your overall approach
-■ What features you implemented
-■ Given more time, what else would you have liked to complete and how
-long it would have taken you?
-■ Given more time, what else would you have done to make the project
-more robust?
-
 Overall, I wanted to create a very simple interface which follows the traditional UX patterns around viewing a details
 page which flows off from a datatable. While the Random user API can generate up to a maximum of 500 users per request,
 I kept the number of users to a simple 10 per page, and implemented pagination (making use of Material UI's pagination 
