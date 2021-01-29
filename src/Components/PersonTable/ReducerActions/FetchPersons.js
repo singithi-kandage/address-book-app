@@ -20,6 +20,8 @@ export const FetchPersons = page => {
       }
     );
 
+    console.log("fetched");
+    console.log(response);
     if (response.status === OK) {
       const responseBody = await response.json();
 

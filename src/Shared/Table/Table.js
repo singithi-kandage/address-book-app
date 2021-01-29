@@ -29,7 +29,7 @@ export const Table = ({
               Sorry, looks like there was a problem getting your records.
             </tr>
           : <Fragment>
-              {tableBody.length > 0 &&
+              {tableBody !== undefined &&
                 tableBody.map((row, index) => {
                   return (
                     <TableRow
