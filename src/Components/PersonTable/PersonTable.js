@@ -71,22 +71,27 @@ class PersonTable extends React.Component {
   }
 
   componentDidMount() {
-    console.log("mounted");
     this.onFetchPersons(this.page);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   // Typical usage (don't forget to compare props):
-  //   if (this.props.page !== prevProps.page) {
-  //     this.onFetchPersons(this.props.page);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.page !== prevProps.page) {
+      this.setState({ page: this.props.page });
+      this.onFetchPersons(this.props.page);
+    }
+    if (this.props.personList !== prevProps.personList) {
+      this.setState({ personList: this.props.personList });
+    }
+    if (this.props.hasError !== prevProps.hasError) {
+      this.setState({ hasError: this.props.hasError });
+    }
+  }
 
-  handleSelectPerson = person => {
+  handleSelectPerson = (person) => {
     this.onSelectRow(person);
   };
 
-  handlePageChange = page => {
+  handlePageChange = (page) => {
     this.onChangePage(page);
   };
 
@@ -110,16 +115,14 @@ class PersonTable extends React.Component {
 }
 
 export default connect(
-  state => (
-    {
-      page: state.pagination.page,
-      personList: state.personData.personList,
-      hasError: state.personData.hasError,
-    },
-    {
-      onFetchPersons: FetchPersons,
-      onSelectRow: SelectPerson,
-      onChangePage: ChangePage,
-    }
-  )
+  (state) => ({
+    page: state.pagination.page,
+    personList: state.personData.personList,
+    hasError: state.personData.hasError,
+  }),
+  {
+    onFetchPersons: FetchPersons,
+    onSelectRow: SelectPerson,
+    onChangePage: ChangePage,
+  }
 )(PersonTable);

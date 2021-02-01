@@ -1,11 +1,10 @@
-import produce from "immer";
-import { registerReducer } from "../../../StateSetup/RootReducer";
+import update from "immutability-helper";
 import { history } from "../../App/App";
 
 export const SELECT_ACTION_NAME = "ACTION_SELECT_PERSON";
 
-export const SelectPerson = person => {
-  return dispatch => {
+export const SelectPerson = (person) => {
+  return (dispatch) => {
     dispatch({
       type: SELECT_ACTION_NAME,
       person,
@@ -14,8 +13,23 @@ export const SelectPerson = person => {
   };
 };
 
-export const selectPersonReducer = produce((state, action) => {
-  state.person = action.person;
-});
+export const SelectPersonReducer = (state, action) => {
+  if (action.type !== SELECT_ACTION_NAME) {
+    return state;
+  }
 
-registerReducer(SELECT_ACTION_NAME, selectPersonReducer);
+  return update(state, {
+    person: {
+      firstName: { $set: action.person.firstName },
+      lastName: { $set: action.person.lastName },
+      phoneNumber: { $set: action.person.phoneNumber },
+      imageUrl: { $set: action.person.imageUrl },
+    },
+  });
+};
+
+export default {
+  SelectPerson,
+  SelectPersonReducer,
+  SELECT_ACTION_NAME,
+};

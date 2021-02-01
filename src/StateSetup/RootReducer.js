@@ -1,17 +1,13 @@
-const reducerMap = {};
+import reduceReducers from "reduce-reducers";
 
-export const registerReducer = (actionName, reducer) => {
-  reducerMap[actionName] = reducer;
-};
+import { FetchPersonsReducer } from "../Components/PersonTable/ReducerActions/FetchPersons";
+import { SelectPersonReducer } from "../Components/PersonTable/ReducerActions/SelectPerson";
+import { ChangePageReducer } from "../Components/PersonTable/ReducerActions/ChangePage";
 
-const RootReducer = (state, action) => {
-  const reducer = reducerMap[action.type];
-  let newState = state;
-
-  if (reducer) {
-    newState = reducer(newState, action);
-  }
-  return newState;
-};
+const RootReducer = reduceReducers(
+  FetchPersonsReducer,
+  SelectPersonReducer,
+  ChangePageReducer
+);
 
 export default RootReducer;

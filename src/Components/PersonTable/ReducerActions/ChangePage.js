@@ -1,10 +1,9 @@
-import produce from "immer";
-import { registerReducer } from "../../../StateSetup/RootReducer";
+import update from "immutability-helper";
 
 export const CHANGE_PAGE_ACTION_NAME = "ACTION_CHANGE_PAGE";
 
-export const ChangePage = page => {
-  return dispatch => {
+export const ChangePage = (page) => {
+  return (dispatch) => {
     dispatch({
       type: CHANGE_PAGE_ACTION_NAME,
       page,
@@ -12,8 +11,20 @@ export const ChangePage = page => {
   };
 };
 
-export const changePageReducer = produce((state, action) => {
-  state.pagination.page = action.page;
-});
+export const ChangePageReducer = (state, action) => {
+  if (action.type !== CHANGE_PAGE_ACTION_NAME) {
+    return state;
+  }
 
-registerReducer(CHANGE_PAGE_ACTION_NAME, changePageReducer);
+  return update(state, {
+    pagination: {
+      page: { $set: action.page },
+    },
+  });
+};
+
+export default {
+  ChangePage,
+  ChangePageReducer,
+  CHANGE_PAGE_ACTION_NAME,
+};

@@ -1,5 +1,4 @@
-import produce from "immer";
-import { registerReducer } from "../../../StateSetup/RootReducer";
+import update from "immutability-helper";
 
 const BASE_RANDOM_USERS_URL = process.env.REACT_APP_BASE_RANDOM_USERS_URL;
 const OK = 200;
@@ -7,25 +6,16 @@ const OK = 200;
 export const RESPONSE_ACTION_NAME = "ACTION_FETCH_PEOPLE_RESPONSE";
 export const ERROR_ACTION_NAME = "ACTION_FETCH_PEOPLE_ERROR";
 
-export const FetchPersons = page => {
-  return async dispatch => {
+export const FetchPersons = (page) => {
+  return async (dispatch) => {
     const response = await fetch(
-      `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc&?exc=login`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "text/plain",
-          "Access-Control-Allow-Origin": "https://randomuser.me",
-        },
-      }
+      `${BASE_RANDOM_USERS_URL}/?page=${page}&results=10&seed=abc&?exc=login`
     );
 
-    console.log("fetched");
-    console.log(response);
     if (response.status === OK) {
       const responseBody = await response.json();
 
-      const personList = responseBody.results.map(result => {
+      const personList = responseBody.results.map((result) => {
         return {
           firstName: result.name.first,
           lastName: result.name.last,
@@ -46,14 +36,37 @@ export const FetchPersons = page => {
   };
 };
 
-export const responseReducer = produce((state, action) => {
-  state.personData.personList = action.personList;
-  state.personData.hasError = false;
-});
+export const FetchPersonsReducer = (state, action) => {
+  if (
+    action.type !== RESPONSE_ACTION_NAME &&
+    action.type !== ERROR_ACTION_NAME
+  ) {
+    return state;
+  }
 
-export const errorReducer = produce((state, action) => {
-  state.personData.hasError = true;
-});
+  switch (action.type) {
+    case "ACTION_FETCH_PEOPLE_RESPONSE":
+      return update(state, {
+        personData: {
+          hasError: { $set: false },
+          personList: { $set: action.personList },
+        },
+      });
+    case "ACTION_FETCH_PEOPLE_ERROR":
+      return update(state, {
+        personData: {
+          hasError: { $set: true },
+          personList: { $set: [] },
+        },
+      });
+    default:
+      return state;
+  }
+};
 
-registerReducer(RESPONSE_ACTION_NAME, responseReducer);
-registerReducer(ERROR_ACTION_NAME, errorReducer);
+export default {
+  FetchPersons,
+  FetchPersonsReducer,
+  RESPONSE_ACTION_NAME,
+  ERROR_ACTION_NAME,
+};
