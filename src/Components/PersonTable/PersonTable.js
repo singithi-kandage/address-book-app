@@ -36,12 +36,15 @@ class PersonTable extends React.Component {
     if (this.props.page !== prevProps.page) {
       this.onFetchPersons(this.props.page);
       this.setState({ page: this.props.page });
+      this.page = this.props.page;
     }
     if (this.props.personList !== prevProps.personList) {
       this.setState({ personList: this.props.personList });
+      this.personList = this.props.personList;
     }
     if (this.props.hasError !== prevProps.hasError) {
       this.setState({ hasError: this.props.hasError });
+      this.hasError = this.props.hasError;
     }
   }
 

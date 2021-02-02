@@ -22,7 +22,7 @@ export const SelectPersonReducer = (state, action) => {
     person: {
       firstName: { $set: action.person.firstName },
       lastName: { $set: action.person.lastName },
-      phoneNumber: { $set: action.person.phoneNumber },
+      email: { $set: action.person.email },
       imageUrl: { $set: action.person.imageUrl },
     },
   });

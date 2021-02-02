@@ -14,8 +14,8 @@ jest.mock("../../App/App.js", () => ({
 const person = {
   firstName: "Test",
   lastName: "Test",
-  phoneNumber: "999-999-9999",
-  imageUrl: "https://randomuser.me/api/image.jpg",
+  email: "test1@gmail.com",
+  imageUrl: "https://reqres.in/api/image.jpg",
 };
 
 describe("SelectPerson", () => {
@@ -40,7 +40,7 @@ describe("selectPersonReducer", () => {
       person: {
         firstName: "",
         lastName: "",
-        phoneNumber: "",
+        email: "",
         imageUrl: "",
       },
     };

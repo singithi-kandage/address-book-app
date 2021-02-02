@@ -10,14 +10,11 @@ const page = 1;
 const results = {
   results: [
     {
-      name: {
-        first: "Test",
-        last: "Test",
-      },
-      phone: "999-999-9999",
-      picture: {
-        large: "https://randomuser.me/api/image.jpg",
-      },
+      id: 1,
+      email: "test1@gmail.com",
+      first_name: "Test",
+      last_name: "Test",
+      avatar: "https://reqres.in/api/image.jpg",
     },
   ],
 };
@@ -25,8 +22,8 @@ const personList = [
   {
     firstName: "Test",
     lastName: "Test",
-    phoneNumber: "999-999-9999",
-    imageUrl: "https://randomuser.me/api/image.jpg",
+    email: "test1@gmail.com",
+    imageUrl: "https://reqres.in/api/image.jpg",
   },
 ];
 
