@@ -6,11 +6,11 @@ import { Form, FormGroup, FormSection } from "../../Shared/Form/Form";
 import { ButtonContainer, Button } from "../../Shared/Button/Button";
 
 export const PersonDetails = () => {
-  const person = useSelector(state => state.person);
+  const person = useSelector((state) => state.person);
 
   return (
     <Fragment>
-      {person.firstName !== "" &&
+      {person.firstName !== "" && (
         <Fragment>
           <h2>{`${person.firstName} ${person.lastName}`}</h2>
 
@@ -37,9 +37,9 @@ export const PersonDetails = () => {
               />
 
               <FormGroup
-                labelText="Phone Number"
+                labelText="Email"
                 inputType="text"
-                inputValue={person.phoneNumber}
+                inputValue={person.email}
               />
             </FormSection>
           </Form>
@@ -51,7 +51,8 @@ export const PersonDetails = () => {
               onClick={() => history.push("/", { from: "PersonDetails" })}
             />
           </ButtonContainer>
-        </Fragment>}
+        </Fragment>
+      )}
     </Fragment>
   );
 };

@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   FetchPersons,
   responseReducer,
@@ -7,17 +8,14 @@ import {
 } from "../ReducerActions/FetchPersons";
 
 const page = 1;
-const results = {
-  results: [
+const data = {
+  data: [
     {
-      name: {
-        first: "Test",
-        last: "Test",
-      },
-      phone: "999-999-9999",
-      picture: {
-        large: "https://randomuser.me/api/image.jpg",
-      },
+      id: 1,
+      email: "test1@gmail.com",
+      first_name: "Test1",
+      last_name: "Test",
+      avatar: "https://reqres.in/api/1.jpg",
     },
   ],
 };
@@ -25,19 +23,24 @@ const personList = [
   {
     firstName: "Test",
     lastName: "Test",
-    phoneNumber: "999-999-9999",
-    imageUrl: "https://randomuser.me/api/image.jpg",
+    email: "test1@gmail.com",
+    imageUrl: "https://reqres.in/api/image.jpg",
   },
 ];
 
-beforeAll(() => jest.spyOn(window, "fetch"));
+beforeAll(() =>
+  jest.mock("axios", () => ({
+    get: jest.fn(() => {
+      return Promise.resolve();
+    }),
+  }))
+);
 
 describe("FetchPersons", () => {
   test("Should fetch persons records and dispatch response action with person list", async () => {
-    window.fetch.mockResolvedValueOnce({
-      status: 200,
-      json: async () => results,
-    });
+    axios.get.mockImplementationOnce(() =>
+      Promise.resolve({ status: 200, data: data })
+    );
 
     const dispatch = await jest.fn();
     await FetchPersons(page)(dispatch);
@@ -51,10 +54,9 @@ describe("FetchPersons", () => {
   });
 
   test("Should throw error action when fetch returns non-200 response", async () => {
-    window.fetch.mockResolvedValueOnce({
-      status: 500,
-      json: async () => {},
-    });
+    axios.get.mockImplementationOnce(() =>
+      Promise.resolve({ status: 500, data: data })
+    );
 
     const dispatch = await jest.fn();
     await FetchPersons(page)(dispatch);

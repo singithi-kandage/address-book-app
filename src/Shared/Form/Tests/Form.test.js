@@ -33,7 +33,7 @@ describe("FormSection", () => {
         inputValue={inputValue}
       />
     );
-    render(<FormSection customWidth={customWidth} children={children} />);
+    render(<FormSection children={children} />);
 
     const container = document.querySelector(".form__formSection");
     expect(container).toBeDefined();

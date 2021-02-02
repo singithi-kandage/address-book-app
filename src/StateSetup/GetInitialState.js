@@ -9,7 +9,7 @@ const InitialState = {
   person: {
     firstName: "",
     lastName: "",
-    phoneNumber: "",
+    email: "",
     imageUrl: "",
   },
 };

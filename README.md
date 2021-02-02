@@ -1,39 +1,43 @@
 # Address Book App
 
-The address book app is a simple SPA which allows a user to view a table of randomly generated users from 
-https://randomuser.me/api. When a user selects a user, they are redirected to a page where they can view the 
-user's first name, last name, and phone number on the details page.
+The address book app is a simple SPA which allows a user to view a table of randomly generated users from
+https://rreqres.in/api. When a user selects a user, they are redirected to a page where they can view the
+user's first name, last name, and email on the details page.
 
 ## Summary
 
 Overall, I wanted to create a very simple interface which follows the traditional UX patterns around viewing a details
 page which flows off from a datatable. While the Random user API can generate up to a maximum of 500 users per request,
-I kept the number of users to a simple 10 per page, and implemented pagination (making use of Material UI's pagination 
-component) to allow a user to access up to 10 pages of users. The details page includes a photograph of the the user, 
-along with their name and phone number. 
+I kept the number of users to a simple 10 per page, and implemented pagination (making use of Material UI's pagination
+component) to allow a user to access up to 10 pages of users. The details page includes a photograph of the the user,
+along with their name and email.
 
 The following technologies/techniques were used:
-* React (this project was bootstrapped with create-react-app)
-* Redux - react-redux, redux-thunk
-* Semantic HTML
-* SASS
-* immer.js
-* BEM
-* Material UI components
+
+- React (this project was bootstrapped with create-react-app)
+- Redux - react-redux, redux-thunk
+- Semantic HTML
+- SASS
+- immer.js
+- BEM
+- Material UI components
 
 The project was tested to 99% jest code coverage with:
-* Jest
-* @testing-library/react"
+
+- Jest
+- @testing-library/react"
 
 If I had more time, I would have liked to:
-* Add more features, including the ability to select the number of results per page, and the ability to filter results by name.
-* Implement fluid typography
-* Allow users to select dark or light mode, by designing around theme-able components
+
+- Add more features, including the ability to select the number of results per page, and the ability to filter results by name.
+- Implement fluid typography
+- Allow users to select dark or light mode, by designing around theme-able components
 
 In order to make the application more robust, I would like to:
-* Do an accesibility audit of the code, ensuring screen readers can properly access the page
-* Convert the ES6 code into Typescript
-* Implement end-to-end tests with Cypress 
+
+- Do an accesibility audit of the code, ensuring screen readers can properly access the page
+- Convert the ES6 code into Typescript
+- Implement end-to-end tests with Cypress
 
 ## Available Scripts
 

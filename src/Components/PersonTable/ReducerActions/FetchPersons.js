@@ -13,14 +13,15 @@ export const FetchPersons = (page) => {
     try {
       const response = await axios.get(`${BASE_URL}/api/users?page=${page}`);
 
+      console.log(response);
       if (response.status === OK) {
         const data = response.data.data;
 
         const personList = data.map((result) => {
           return {
             firstName: result.first_name,
-            lastName: result.first_name,
-            phoneNumber: result.email,
+            lastName: result.last_name,
+            email: result.email,
             imageUrl: result.avatar,
           };
         });
@@ -34,7 +35,6 @@ export const FetchPersons = (page) => {
         });
       }
     } catch (error) {
-      console.error(error);
       dispatch({
         type: ERROR_ACTION_NAME,
       });

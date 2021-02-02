@@ -8,25 +8,25 @@ const personList = [
   {
     firstName: "Test1",
     lastName: "TestLastName1",
-    phoneNumber: "999-999-9999",
-    imageUrl: "https://randomuser.me/api/image1.jpg",
+    email: "test1@gmail.com",
+    imageUrl: "https://reqres.in/api/image1.jpg",
   },
   {
     firstName: "Test2",
     lastName: "TestLastName2",
-    phoneNumber: "888-999-9999",
-    imageUrl: "https://randomuser.me/api/image2.jpg",
+    email: "test2@gmail.com",
+    imageUrl: "https://reqres.in/api/image2.jpg",
   },
   {
     firstName: "Test3",
     lastName: "TestLastName3",
-    phoneNumber: "777-999-9999",
-    imageUrl: "https://randomuser.me/api/image3.jpg",
+    email: "test3@gmail.com",
+    imageUrl: "https://reqres.in/api/image3.jpg",
   },
 ];
 
 jest.mock("react-redux", () => ({
-  useSelector: jest.fn().mockImplementation(selector =>
+  useSelector: jest.fn().mockImplementation((selector) =>
     selector({
       pagination: {
         page: 1,
@@ -38,12 +38,12 @@ jest.mock("react-redux", () => ({
       person: {
         firstName: "Test1",
         lastName: "TestLastName1",
-        phoneNumber: "999-999-9999",
-        imageUrl: "https://randomuser.me/api/image1.jpg",
+        email: "test1@gmail.com",
+        imageUrl: "https://reqres.in/api/image1.jpg",
       },
     })
   ),
-  useDispatch: jest.fn().mockImplementation(() => actionDispatcher => {}),
+  useDispatch: jest.fn().mockImplementation(() => (actionDispatcher) => {}),
 }));
 
 jest.mock("../../App/App.js", () => ({

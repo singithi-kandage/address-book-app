@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "clear_jest": "jest --clearCache"
   },
-  "proxy": "https://randomuser.me",
+  "proxy": "https://reqres.in",
   "eslintConfig": {
     "extends": [
       "react-app",
