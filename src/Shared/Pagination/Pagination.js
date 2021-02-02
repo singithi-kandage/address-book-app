@@ -7,7 +7,7 @@ export const CustomPagination = ({ page, onPageChange }) => {
   return (
     <div className="paginationContainer">
       <Pagination
-        count={10}
+        count={2}
         page={page}
         onChange={(event, value) => {
           onPageChange(value);
