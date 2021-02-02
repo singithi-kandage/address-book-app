@@ -14,48 +14,6 @@ const tableHeader = [
   { columnName: "Last Name" },
 ];
 
-// export const PersonTable = () => {
-//   const { page } = useSelector(state => ({
-//     page: state.pagination.page,
-//   }));
-//   const { personList } = useSelector(state => ({
-//     personList: state.personData.personList,
-//   }));
-//   const { hasError } = useSelector(state => ({
-//     personList: state.personData.hasError,
-//   }));
-
-//   const dispatch = useDispatch();
-
-//   useEffect(
-//     () => {
-//       dispatch(FetchPersons(page));
-//     },
-//     [page, dispatch]
-//   );
-
-//   const handleSelectPerson = person => {
-//     dispatch(SelectPerson(person));
-//   };
-
-//   const handlePageChange = page => {
-//     dispatch(ChangePage(page));
-//   };
-
-//   return (
-//     <Fragment>
-//       <Table
-//         tableHeader={tableHeader}
-//         tableBody={personList}
-//         hasError={hasError}
-//         displayedColumns={["imageUrl", "firstName", "lastName"]}
-//         onSelectRow={handleSelectPerson}
-//       />
-//       <CustomPagination page={page} onPageChange={handlePageChange} />
-//     </Fragment>
-//   );
-// };
-
 class PersonTable extends React.Component {
   constructor(props) {
     super(props);
@@ -76,8 +34,8 @@ class PersonTable extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.page !== prevProps.page) {
-      this.setState({ page: this.props.page });
       this.onFetchPersons(this.props.page);
+      this.setState({ page: this.props.page });
     }
     if (this.props.personList !== prevProps.personList) {
       this.setState({ personList: this.props.personList });

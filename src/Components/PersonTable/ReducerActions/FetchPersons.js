@@ -9,35 +9,30 @@ export const ERROR_ACTION_NAME = "ACTION_FETCH_PEOPLE_ERROR";
 export const FetchPersons = (page) => {
   return async (dispatch) => {
     try {
-      axios
-        .get(`/api/?page=${page}&results=10&seed=abc&?exc=login`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "http://localhost:3000",
-          },
-        })
-        .then((response) => {
-          if (response.status === OK) {
-            const data = response.data.results;
+      const response = await axios.get(
+        `https://reqres.in/api/users?page=${page}`
+      );
 
-            const personList = data.map((result) => {
-              return {
-                firstName: result.name.first,
-                lastName: result.name.last,
-                phoneNumber: result.phone,
-                imageUrl: result.picture.large,
-              };
-            });
-            dispatch({
-              type: RESPONSE_ACTION_NAME,
-              personList,
-            });
-          } else {
-            dispatch({
-              type: ERROR_ACTION_NAME,
-            });
-          }
+      if (response.status === OK) {
+        const data = response.data.data;
+
+        const personList = data.map((result) => {
+          return {
+            firstName: result.first_name,
+            lastName: result.first_name,
+            phoneNumber: result.email,
+            imageUrl: result.avatar,
+          };
         });
+        dispatch({
+          type: RESPONSE_ACTION_NAME,
+          personList,
+        });
+      } else {
+        dispatch({
+          type: ERROR_ACTION_NAME,
+        });
+      }
     } catch (error) {
       console.error(error);
       dispatch({
@@ -55,6 +50,7 @@ export const FetchPersonsReducer = (state, action) => {
     return state;
   }
 
+  console.log(action.personList);
   switch (action.type) {
     case "ACTION_FETCH_PEOPLE_RESPONSE":
       return update(state, {
